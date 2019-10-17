@@ -6,11 +6,7 @@
     "test":"tests"
   },
   "scripts": {
-<<<<<<< HEAD
     "bandr-api-test": "newman run Backup and Restore/B&R_Group_API.postman_collection.json"
-=======
-    "b&r-api-test": "newman run Backup and Restore/B&R_Group_API.postman_collection.json --insecure"
->>>>>>> 2dbb1b53469689efdb900c34542ddcf194fb573f
   },
   "author": "Apoorav Misra",
   "dependencies": {
