@@ -330,7 +330,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "https://192.168.0.156:8390/darkBackupServer/rest/admin/groups/8",
+					"raw": "https://192.168.0.156:8390/darkBackupServer/rest/admin/groups/10",
 					"protocol": "https",
 					"host": [
 						"192",
