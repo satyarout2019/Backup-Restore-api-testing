@@ -408,7 +408,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "https://192.168.0.156:8390/darkBackupServer/rest/admin/groups/9",
+					"raw": "https://192.168.0.156:8390/darkBackupServer/rest/admin/groups/7",
 					"protocol": "https",
 					"host": [
 						"192",
@@ -480,7 +480,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"id\": 9,\n\n\"parentGroupId\": 1,\n\n  \"name\": \"DMGroup\",\n  \"description\": \"updated\"\n}"
+					"raw": "{\n  \"id\": 13,\n\n\"parentGroupId\": 1,\n\n  \"name\": \"DMGroup\",\n  \"description\": \"updated\"\n}"
 				},
 				"url": {
 					"raw": "https://192.168.0.156:8390/darkBackupServer/rest/admin/groups",
