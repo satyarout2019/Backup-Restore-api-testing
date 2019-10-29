@@ -1,12 +1,12 @@
 {
 	"info": {
-		"_postman_id": "1029757a-1357-4caa-ad1b-e13b2a56fe6f",
-		"name": "B&R_Group_API",
+		"_postman_id": "eaf4f04d-1338-43c2-b0b2-8617d4ed94cd",
+		"name": "BandR_Device_Api",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Authenticate",
+			"name": "AUTHENTICATE",
 			"event": [
 				{
 					"listen": "test",
@@ -118,397 +118,12 @@
 			"response": []
 		},
 		{
-			"name": "create groups",
+			"name": "GET DEVICE DETAILS BY DEVICE ID",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "5489b26d-b810-4352-a646-5dccbf0366e0",
-						"exec": [
-							"//Check whether the response code is correct",
-							"pm.test(\"Status code is 200\", function() {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"//Checking the response time",
-							"pm.test(\"Response time is less than 300ms\", function() {",
-							"    pm.expect(pm.response.responseTime).to.be.below(300);",
-							"});",
-							"",
-							"//Checking the success tag value",
-							"pm.test(\"Success tag should have true value\", function() {",
-							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.success).is.to.equal(true);",
-							"});",
-							"",
-							"//Checking the message tag value",
-							"pm.test(\"Message tag should have success value\", function() {",
-							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.message).is.to.equal(\"Success\");",
-							"});",
-							"",
-							"//Check the name and description of the group being created",
-							"//pm.test(\"Name and Description of the group\", function() {",
-							" //   var jsonData = pm.response.json();",
-							" //   pm.expect(jsonData.data.name).is.to.equal(\"DarkGroup\");",
-							" //   pm.expect(jsonData.data.description).is.to.equal(\"this is a test group\");",
-							"//});",
-							"",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					},
-					{
-						"key": "X-XSRF-TOKEN",
-						"value": "{{token}}"
-					},
-					{
-						"key": "",
-						"value": "",
-						"disabled": true
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"name\": \"TestGroup123\",\n  \"description\": \"this is a test group\",\n  \"parentGroupId\": 1\n}"
-				},
-				"url": {
-					"raw": "https://192.168.0.156:8390/darkBackupServer/rest/admin/groups",
-					"protocol": "https",
-					"host": [
-						"192",
-						"168",
-						"0",
-						"156"
-					],
-					"port": "8390",
-					"path": [
-						"darkBackupServer",
-						"rest",
-						"admin",
-						"groups"
-					]
-				},
-				"description": "groups"
-			},
-			"response": []
-		},
-		{
-			"name": "Get a list of group",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "5efc1b2a-1c67-4f92-ad74-ce95e0cd4b92",
-						"exec": [
-							"//Check whether the response code is correct",
-							"pm.test(\"Status code is 200\", function() {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"//Checking the response time",
-							"pm.test(\"Response time is less than 200ms\", function() {",
-							"    pm.expect(pm.response.responseTime).to.be.below(200);",
-							"});",
-							"",
-							"//Checking the success tag value",
-							"pm.test(\"Success tag should have true value\", function() {",
-							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.success).is.to.equal(true);",
-							"});",
-							"",
-							"//Checking the message tag value",
-							"pm.test(\"Message tag should have success value\", function() {",
-							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.message).is.to.equal(\"Success\");",
-							"});",
-							"",
-							"",
-							"",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					},
-					{
-						"key": "X-XSRF-TOKEN",
-						"value": "{{token}}"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "https://192.168.0.156:8390/darkBackupServer/rest/admin/grouplist",
-					"protocol": "https",
-					"host": [
-						"192",
-						"168",
-						"0",
-						"156"
-					],
-					"port": "8390",
-					"path": [
-						"darkBackupServer",
-						"rest",
-						"admin",
-						"grouplist"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Delete a group",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "11bebb22-40de-4ade-9e1c-4a23c3c9aa27",
-						"exec": [
-							"//Check whether the response code is correct",
-							"pm.test(\"Status code is 200\", function() {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"//Checking the response time",
-							"pm.test(\"Response time is less than 200ms\", function() {",
-							"    pm.expect(pm.response.responseTime).to.be.below(200);",
-							"});",
-							"",
-							"//Checking the success tag value",
-							"pm.test(\"Success tag should have true value\", function() {",
-							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.success).is.to.equal(true);",
-							"});",
-							"",
-							"//Checking the message tag value",
-							"pm.test(\"Message tag should have success value\", function() {",
-							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.message).is.to.equal(\"Success\");",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					},
-					{
-						"key": "X-XSRF-TOKEN",
-						"value": "{{token}}"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "https://192.168.0.156:8390/darkBackupServer/rest/admin/groups/8",
-					"protocol": "https",
-					"host": [
-						"192",
-						"168",
-						"0",
-						"156"
-					],
-					"port": "8390",
-					"path": [
-						"darkBackupServer",
-						"rest",
-						"admin",
-						"groups",
-						"8"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get groups details",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "acd30de1-eaaa-4327-be1d-1689a0829c64",
-						"exec": [
-							"//Check whether the response code is correct",
-							"pm.test(\"Status code is 200\", function() {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"//Checking the response time",
-							"pm.test(\"Response time is less than 200ms\", function() {",
-							"    pm.expect(pm.response.responseTime).to.be.below(200);",
-							"});",
-							"",
-							"//Checking the success tag value",
-							"pm.test(\"Success tag should have true value\", function() {",
-							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.success).is.to.equal(true);",
-							"});",
-							"",
-							"//Checking the message tag value",
-							"pm.test(\"Message tag should have success value\", function() {",
-							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.message).is.to.equal(\"Success\");",
-							"});",
-							"",
-							"",
-							"",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					},
-					{
-						"key": "X-XSRF-TOKEN",
-						"value": "{{token}}"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "https://192.168.0.156:8390/darkBackupServer/rest/admin/groups/9",
-					"protocol": "https",
-					"host": [
-						"192",
-						"168",
-						"0",
-						"156"
-					],
-					"port": "8390",
-					"path": [
-						"darkBackupServer",
-						"rest",
-						"admin",
-						"groups",
-						"9"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Update group",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "ae61dc80-23d3-4d3f-b115-284097ba6786",
-						"exec": [
-							"//Check whether the response code is correct",
-							"pm.test(\"Status code is 200\", function() {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"//Checking the response time",
-							"pm.test(\"Response time is less than 200ms\", function() {",
-							"    pm.expect(pm.response.responseTime).to.be.below(200);",
-							"});",
-							"",
-							"//Checking the success tag value",
-							"pm.test(\"Success tag should have true value\", function() {",
-							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.success).is.to.equal(true);",
-							"});",
-							"",
-							"//Checking the message tag value",
-							"pm.test(\"Message tag should have success value\", function() {",
-							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.message).is.to.equal(\"Success\");",
-							"});",
-							"",
-							"",
-							"",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					},
-					{
-						"key": "X-XSRF-TOKEN",
-						"value": "{{token}}"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"id\": 9,\n\n\"parentGroupId\": 1,\n\n  \"name\": \"DMGroup\",\n  \"description\": \"updated\"\n}"
-				},
-				"url": {
-					"raw": "https://192.168.0.156:8390/darkBackupServer/rest/admin/groups",
-					"protocol": "https",
-					"host": [
-						"192",
-						"168",
-						"0",
-						"156"
-					],
-					"port": "8390",
-					"path": [
-						"darkBackupServer",
-						"rest",
-						"admin",
-						"groups"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Search groups",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "031e631f-59e2-41b5-8806-cc4d758c8ee2",
+						"id": "3ab20f6b-3a89-43c3-9d96-72a17eeb5c0e",
 						"exec": [
 							"//Check whether the response code is correct",
 							"pm.test(\"Status code is 200\", function() {",
@@ -545,15 +160,17 @@
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json"
+						"value": "application/json",
+						"type": "text"
 					},
 					{
 						"key": "X-XSRF-TOKEN",
-						"value": "{{token}}"
+						"value": "{{token}}",
+						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "https://192.168.0.156:8390/darkBackupServer/rest/admin/groups/search?groupName=Admin Group",
+					"raw": "https://192.168.0.156:8390/darkBackupServer/rest/admin/device/54",
 					"protocol": "https",
 					"host": [
 						"192",
@@ -566,18 +183,311 @@
 						"darkBackupServer",
 						"rest",
 						"admin",
-						"groups",
-						"search"
+						"device",
+						"54"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ALL DEVICES",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "60217273-135a-4d07-95f0-d0c89081346f",
+						"exec": [
+							"//Check whether the response code is correct",
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"//Checking the response time",
+							"pm.test(\"Response time is less than 200ms\", function() {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"//Checking the success tag value",
+							"pm.test(\"Success tag should have true value\", function() {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.success).is.to.equal(true);",
+							"});",
+							"",
+							"//Checking the message tag value",
+							"pm.test(\"Message tag should have success value\", function() {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.message).is.to.equal(\"Success\");",
+							"});",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://192.168.0.156:8390/darkBackupServer/rest/admin/devicelist",
+					"protocol": "https",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"156"
+					],
+					"port": "8390",
+					"path": [
+						"darkBackupServer",
+						"rest",
+						"admin",
+						"devicelist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET DEVICE DETAILS BY USER",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5b7e860f-9cf0-42a5-9209-1787aa98b6c0",
+						"exec": [
+							"//Check whether the response code is correct",
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"//Checking the response time",
+							"pm.test(\"Response time is less than 200ms\", function() {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"//Checking the success tag value",
+							"pm.test(\"Success tag should have true value\", function() {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.success).is.to.equal(true);",
+							"});",
+							"",
+							"//Checking the message tag value",
+							"pm.test(\"Message tag should have success value\", function() {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.message).is.to.equal(\"Success\");",
+							"});",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://192.168.0.156:8390/darkBackupServer/rest/admin/devicesbyuser/neeraj@darkmatter.ae",
+					"protocol": "https",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"156"
+					],
+					"port": "8390",
+					"path": [
+						"darkBackupServer",
+						"rest",
+						"admin",
+						"devicesbyuser",
+						"neeraj@darkmatter.ae"
 					],
 					"query": [
 						{
-							"key": "groupName",
-							"value": "Admin Group"
+							"key": "Content-Type",
+							"value": "",
+							"disabled": true
 						}
 					]
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "GET DEVICES FOR VERSION",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4fa1c250-b31f-48a1-95f2-7ab3b921f648",
+						"exec": [
+							"//Check whether the response code is correct",
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"//Checking the response time",
+							"pm.test(\"Response time is less than 200ms\", function() {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"//Checking the success tag value",
+							"pm.test(\"Success tag should have true value\", function() {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.success).is.to.equal(true);",
+							"});",
+							"",
+							"//Checking the message tag value",
+							"pm.test(\"Message tag should have success value\", function() {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.message).is.to.equal(\"Success\");",
+							"});",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://192.168.0.156:8390/darkBackupServer/rest/admin/getdevicesforversion/0.1.15",
+					"protocol": "https",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"156"
+					],
+					"port": "8390",
+					"path": [
+						"darkBackupServer",
+						"rest",
+						"admin",
+						"getdevicesforversion",
+						"0.1.15"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET DEVICES APPLICATION VERSION",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "8de2f072-4629-4d39-a394-b6206fcd15c9",
+						"exec": [
+							"//Check whether the response code is correct",
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"//Checking the response time",
+							"pm.test(\"Response time is less than 200ms\", function() {",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);",
+							"});",
+							"",
+							"//Checking the success tag value",
+							"pm.test(\"Success tag should have true value\", function() {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.success).is.to.equal(true);",
+							"});",
+							"",
+							"//Checking the message tag value",
+							"pm.test(\"Message tag should have success value\", function() {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.message).is.to.equal(\"Success\");",
+							"});",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-XSRF-TOKEN",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://192.168.0.156:8390/darkBackupServer/rest/admin/getversionfordevice/58",
+					"protocol": "https",
+					"host": [
+						"192",
+						"168",
+						"0",
+						"156"
+					],
+					"port": "8390",
+					"path": [
+						"darkBackupServer",
+						"rest",
+						"admin",
+						"getversionfordevice",
+						"58"
+					]
+				}
+			},
+			"response": []
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }

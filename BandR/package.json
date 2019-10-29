@@ -1,0 +1,23 @@
+{
+  "name": "postman-jenkins",
+  "version": "1.0.0",
+  "description": " Project for storing Back up and Restore tests",
+  "directories": {
+    "test": "BandR"
+  },
+  "scripts": {
+    "bandr-api-test-group-collection": "newman run BandR_Group_API.postman_collection.json --insecure",
+    "bandr-api-test-user-collection": "newman run BandR_User_API.postman_collection.json --insecure",
+    "bandr-api-test-device-collection": "newman run BandR_Device_API.postman_collection.json --insecure" 
+ },
+  "author": "Apoorav Misra",
+  "dependencies": {
+    "newman": "^4.5.5"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/satyarout2019/Backup-Restore-api-testing.git"
+  },
+  "license": "ISC"
+}
